@@ -4,18 +4,13 @@
 int main()
 {
     using namespace std; // for both cout and string
-    cout << "Enter your name: ";
-    string strString;
-    cin >> strString;
-    cout << "Hello, " << strString << "!" << endl;
- 
-    cout << "Your name has: " << strString.length() <<
-            " characters in it" << endl;
-    cout << "The 2nd character is: " << strString[1] << endl;
- 
-    strString = "Dave";
-    cout << "Your name is now " << strString << endl;
-    cout << "Goodbye, " << strString << endl;
+
+    int nValue = 5;
+    int *pnPtr = &nValue; // assign address of nValue to pnPtr
+     
+    cout << &nValue << endl; // print the address of variable nValue
+    cout << pnPtr << endl; // print the address that pnPtr is holding
+
  
     return 0;
 }
