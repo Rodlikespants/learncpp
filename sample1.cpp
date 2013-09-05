@@ -3,14 +3,20 @@
  
 int main()
 {
-    using namespace std; // for both cout and string
+  using namespace std; // for both cout and string
 
-    int nValue = 5;
-    int *pnPtr = &nValue; // assign address of nValue to pnPtr
-     
-    cout << &nValue << endl; // print the address of variable nValue
-    cout << pnPtr << endl; // print the address that pnPtr is holding
+  char *pchValue; // chars are 1 byte
+  int *pnValue; // ints are usually 4 bytes
+  struct Something
+  {
+      int nX, nY, nZ;
+  };
+  Something *psValue; // Something is probably 12 bytes
+   
+  cout << sizeof(pchValue) << endl; // prints 4
+  cout << sizeof(pnValue) << endl; // prints 4
+  cout << sizeof(psValue) << endl; // prints 4
 
- 
-    return 0;
+
+  return 0;
 }
