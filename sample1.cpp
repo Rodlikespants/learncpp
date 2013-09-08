@@ -1,22 +1,18 @@
 #include <iostream>
 #include <string>
+using namespace std; // for both cout and string
+
+void foo(int *pValue)
+{
+    *pValue = 6;
+}
  
 int main()
 {
-  using namespace std; // for both cout and string
-
-  char *pchValue; // chars are 1 byte
-  int *pnValue; // ints are usually 4 bytes
-  struct Something
-  {
-      int nX, nY, nZ;
-  };
-  Something *psValue; // Something is probably 12 bytes
-   
-  cout << sizeof(pchValue) << endl; // prints 4
-  cout << sizeof(pnValue) << endl; // prints 4
-  cout << sizeof(psValue) << endl; // prints 4
-
-
-  return 0;
-}
+    int nValue = 5;
+ 
+    cout << "nValue = " << nValue << endl;
+    foo(&nValue);
+    cout << "nValue = " << nValue << endl;
+    return 0;
+} 
