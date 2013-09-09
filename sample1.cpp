@@ -2,17 +2,16 @@
 #include <string>
 using namespace std; // for both cout and string
 
-void foo(int *pValue)
+int foo(int nX)
 {
-    *pValue = 6;
+  cout << "The number is " << nX << endl;
 }
  
 int main()
 {
-    int nValue = 5;
- 
-    cout << "nValue = " << nValue << endl;
-    foo(&nValue);
-    cout << "nValue = " << nValue << endl;
-    return 0;
+  int nValue = 5;
+  int (*pFoo)(int) = foo; // assign pFoo to foo()
+   
+  (*pFoo)(nValue); // call function foo(nValue) through pFoo. 
+  return 0;
 } 
