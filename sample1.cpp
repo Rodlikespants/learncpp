@@ -1,17 +1,44 @@
 #include <iostream>
-#include <string>
+#include <string.h>
 using namespace std; // for both cout and string
 
-int foo(int nX)
+#include <iostream>
+class Employee
 {
-  cout << "The number is " << nX << endl;
-}
+public:
+    char m_strName[25];
+    int m_nID;
+    double m_dWage;
+ 
+    // Set the employee information
+    void SetInfo(char *strName, int nID, double dWage)
+    {
+        strncpy(m_strName, strName, 25);
+        m_nID = nID;
+        m_dWage = dWage;
+    }
+ 
+    // Print employee information to the screen
+    void Print()
+    {
+        using namespace std;
+        cout << "Name: " << m_strName << "  Id: " <<
+            m_nID << "  Wage: $" << m_dWage << endl;
+    }
+};
  
 int main()
 {
-  int nValue = 5;
-  int (*pFoo)(int) = foo; // assign pFoo to foo()
-   
-  (*pFoo)(nValue); // call function foo(nValue) through pFoo. 
-  return 0;
-} 
+    // Declare two employees
+    Employee cAlex;
+    cAlex.SetInfo("Alex", 1, 25.00);
+ 
+    Employee cJoe;
+    cJoe.SetInfo("Joe", 2, 22.25);
+ 
+    // Print out the employee information
+    cAlex.Print();
+    cJoe.Print();
+ 
+    return 0;
+}
