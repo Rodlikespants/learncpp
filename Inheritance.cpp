@@ -26,9 +26,33 @@ class BaseballPlayer : public Person {
     }
 };
 
+class Employee: public Person {
+  public:
+    string m_strEmployerName;
+    double m_dHourlySalary;
+    long m_lEmployeeID;
+
+    Employee(string strEmployerName, double dHourlySalary, long lEmployeeID) : m_strEmployerName(strEmployerName), m_dHourlySalary(dHourlySalary), m_lEmployeeID(lEmployeeID) {
+      m_strName = strEmployerName;
+    }
+
+    double GetHourlySalary() { return m_dHourlySalary; }
+    void PrintNameAndSalary() {
+      cout << m_strName << ": " << m_dHourlySalary << endl;
+    }
+};
+
+class Supervisor : public Employee {
+  public:
+    int m_nOverseesIDs[5];
+};
+
 int main() {
   BaseballPlayer cJoe;
   cJoe.m_strName = "Joe";
   cout << cJoe.GetName() << endl;
+
+  Employee emp("rod",-6.0,13);
+  emp.PrintNameAndSalary();
   return 0;
 }
